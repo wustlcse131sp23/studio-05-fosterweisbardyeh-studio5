@@ -16,7 +16,9 @@ public class Methods {
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
 		double distance = 0;
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
-		
+		double dx = x2 - x1;
+		double dy = y2 - y1;
+		distance = (double) Math.sqrt((Math.pow(dx, 2)) + (Math.pow(dy, 2)));
 		return distance;
 	}
 
@@ -34,16 +36,22 @@ public class Methods {
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
+		StdDraw.setPenColor(0,109,219);
+		StdDraw.filledCircle(x, y , (3.0/4.0)* radius);
 
 		
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
+		StdDraw.setPenColor(146,0,0);
+		StdDraw.filledCircle(x, y, (1.0/2.0)* radius);
 
 		
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
+		StdDraw.setPenColor(225,225,109);
+		StdDraw.filledCircle(x,  y,  (1.0/4.0)* radius);
 
 		
 	}
@@ -63,6 +71,24 @@ public class Methods {
 		String result = "";
 		// TODO: Finish this method
 		
+		for (int i = 0; i < source.length(); i++) {
+			
+			if (source.charAt(i) == target) {
+				
+				result += replacement;
+				
+			}
+			
+			else {
+				
+				result += source.charAt(i);
+				
+			}
+			
+			
+		
+		}
+		
 		return result;
 	}
 
@@ -76,6 +102,11 @@ public class Methods {
 		int sum = 0;
 		// FIXME: Compute the sum of the values in an array
 		
+		for (int count = 0; count < values.length; count++)
+		{
+			sum = sum + values[count];
+		}
+		
 		return sum;
 	}
 
@@ -87,15 +118,34 @@ public class Methods {
 	 * @return and array of size that's filled with value
 	 */
 	public static int[] filledArray(int length, int value) {
-		int[] values = null; // FIXME: Create an array of the appropriate size
+		int[] values = new int [length]; // FIXME: Create an array of the appropriate size
 		// TODO: Finish this method
 
-		
+		for (int count = 0; count < values.length; count++)
+		{
+			values [count] = value;
+		}
 
 		return values;
 	}
 
 	// TODO: Create an arrayMean method which accepts an int array of values parameter.
+	
+	/**
+	 * Return a mean of a given array
+	 * 
+	 * @param value  the array we are finding the mean of
+	 * @return mean  the mean of the array value
+	 */
+	
+	public static double arrayMean(int [] value) {
+		
+		double sum = arraySum(value);
+		double mean = sum / value.length;
+		
+		return mean;
+		
+	}
 	// TODO: Create a JavaDoc comment for the arrayMean method.
 
 	
